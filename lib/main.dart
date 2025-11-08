@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'screens/home_screen.dart';
+import 'screens/home.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,9 +12,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter News App',
-      theme: ThemeData(useMaterial3: true, colorSchemeSeed: Colors.blue),
-      home: const HomeScreen(),
+      title: "FakeJo's Task",
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+        scaffoldBackgroundColor: const Color.fromARGB(255, 88, 118, 167),
+      ),
+      home: const HomePage(),
     );
   }
 }

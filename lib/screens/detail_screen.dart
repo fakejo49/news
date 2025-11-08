@@ -1,40 +1,41 @@
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
 import '../models/article.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class DetailScreen extends StatelessWidget {
   final Article article;
   const DetailScreen({super.key, required this.article});
 
-  Future<void> _launchUrl(String url) async {
-    final Uri uri = Uri.parse(url);
-    if (!await launchUrl(uri)) {
-      throw Exception('Tidak dapat membuka URL');
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(article.title)),
-      body: SingleChildScrollView(
+      appBar: AppBar(
+        title: Text(article.title),
+        backgroundColor: Colors.blue[800],
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Image.network(article.urlToImage, fit: BoxFit.cover),
-            Padding(
-              padding: const EdgeInsets.all(16),
-              child: Text(
-                article.description,
-                style: const TextStyle(fontSize: 16),
-              ),
+            const SizedBox(height: 16),
+            Text(
+              article.title,
+              style:
+                  const TextStyle(fontSize: 20, fontWeight: FontWeight.bold ),
             ),
-            Center(
-              child: ElevatedButton.icon(
-                onPressed: () => _launchUrl(article.url),
-                icon: const Icon(Icons.open_in_browser),
-                label: const Text("Baca Selengkapnya"),
-              ),
+            const SizedBox(height: 10),
+            Text(article.description),
+            const Spacer(),
+            ElevatedButton(
+              onPressed: () async {
+                if (await canLaunchUrl(Uri.parse(article.url))) {
+                  await launchUrl(Uri.parse(article.url));
+                }
+              },
+              style: ElevatedButton.styleFrom(backgroundColor: const Color.fromARGB(255, 110, 165, 228)),
+              child: const Text('Read Full Article'),
             ),
           ],
         ),

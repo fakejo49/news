@@ -1,12 +1,19 @@
 name: newsapi_jonathan
 description: "A new Flutter project."
+
 environment:
   sdk: ">=3.0.0 <4.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
+  flutter_map: ^8.2.2
+  latlong2: ^0.9.0
   http: ^1.2.1
   shared_preferences: ^2.2.3
   url_launcher: ^6.2.6
 
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/me.jpg
