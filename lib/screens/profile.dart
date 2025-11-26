@@ -23,7 +23,7 @@ class MyProfile extends StatelessWidget {
             // Foto profil atau avatar
             CircleAvatar(
               radius: 100,
-              backgroundImage: const AssetImage('assets/me.jpg'),
+              backgroundImage: const AssetImage('assets/Marin_Kitagawa.png'),
             ),
             const SizedBox(height: 20),
 

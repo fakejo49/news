@@ -3,13 +3,11 @@ import 'package:newsapi_jonathan/screens/fakejo_dino.dart';
 import 'package:newsapi_jonathan/screens/finance_tracker/finance_home.dart';
 import 'package:newsapi_jonathan/screens/live_ngoding.dart';
 import 'package:newsapi_jonathan/screens/music_player_screen.dart';
+import 'package:newsapi_jonathan/screens/news_screen.dart';
+import 'package:newsapi_jonathan/screens/fakejo_map.dart';
+import 'package:newsapi_jonathan/screens/profile.dart';
 import 'package:newsapi_jonathan/screens/user_api/user_login_screen.dart';
-import 'package:newsapi_jonathan/screens/user_api/user_register_screen.dart';
 import '../widgets/task_card.dart';
-import 'news_screen.dart';
-import 'login_register.dart';
-import 'fakejo_map.dart';
-import 'profile.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -34,8 +32,6 @@ class HomePage extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         child: ListView(
           children: [
-            // --- Tugas Baru: Implementasi API ---
-          // --- Tugas lama tetap ada di bawah ---
             TaskCard(
               title: "API News",
               subtitle: "Menampilkan daftar berita dari NewsAPI",
@@ -45,10 +41,11 @@ class HomePage extends StatelessWidget {
                 MaterialPageRoute(builder: (context) => const NewsScreen()),
               ),
             ),
+            
             TaskCard(
               title: "FakeJo World Map",
               subtitle: "Live World Map",
-              icon: Icons.public,
+              icon: Icons.map,
               onTap: () => Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => const FakeJoMap()),
@@ -56,8 +53,8 @@ class HomePage extends StatelessWidget {
             ),
             TaskCard(
               title: "Profile",
-              subtitle: "Profil Perancang",
-              icon: Icons.info,
+              subtitle: "Profil Perancang Daftar Tugas",
+              icon: Icons.person,
               onTap: () => Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => const MyProfile()),
@@ -66,7 +63,7 @@ class HomePage extends StatelessWidget {
             TaskCard(
               title: "FakeJo Dino Run",
               subtitle: "Dino Minigame",
-              icon: Icons.videogame_asset_rounded,
+              icon: Icons.videogame_asset,
               onTap: () => Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => const DinoRunPage()),
@@ -83,7 +80,7 @@ class HomePage extends StatelessWidget {
             ),
             TaskCard(
               title: "Music Player",
-              subtitle: "Music Player",
+              subtitle: "Online Music Player",
               icon: Icons.music_note,
               onTap: () => Navigator.push(
                 context,
@@ -92,7 +89,7 @@ class HomePage extends StatelessWidget {
             ),
             TaskCard(
               title: "Live Ngoding",
-              subtitle: "Ngoding secara Live",
+              subtitle: "Ngoding Live",
               icon: Icons.map,
               onTap: () => Navigator.push(
                 context,
